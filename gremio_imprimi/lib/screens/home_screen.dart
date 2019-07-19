@@ -59,29 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class Home1 extends StatefulWidget {
-  final String matricula;
-  Home1(this.matricula);
-  Future<List> getData() async {
-    var url = 'https://flutterteste.000webhostapp.com/get.php';
-    http.Response response = await http.get(url);
-
-    var data = jsonDecode(response.body);
-    return data;
-    // print(data.toString());
-  }
-
-  @override
-  _Home1State createState() => _Home1State();
-}
-
-class _Home1State extends State<Home1> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
 class Home extends StatelessWidget {
   final String matricula;
   Home(this.matricula);
@@ -135,16 +112,4 @@ class Home extends StatelessWidget {
   }
 }
 
-class ItemList extends StatelessWidget {
-  final List list;
-  ItemList({this.list});
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: list == null ? 0 : list.length,
-      itemBuilder: (context, i) {
-        return Text(list[i]['NOME_ALUNO']);
-      },
-    );
-  }
-}
+
