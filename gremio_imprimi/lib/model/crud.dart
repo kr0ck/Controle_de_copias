@@ -20,3 +20,13 @@ void addData(ctrlMat, ctrlNome, ctrlTurma) {
     "turma": ctrlTurma.text
   });
 }
+
+List date(){
+  var now = DateTime.now();
+
+  int day = now.day;
+  int month = now.month;
+  List date = [day, month];
+
+  return date;
+}
