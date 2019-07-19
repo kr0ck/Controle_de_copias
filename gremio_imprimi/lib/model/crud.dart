@@ -21,12 +21,54 @@ void addData(ctrlMat, ctrlNome, ctrlTurma) {
   });
 }
 
-List date(){
+dynamic date(){
   var now = DateTime.now();
 
   int day = now.day;
   int month = now.month;
-  List date = [day, month];
+  //List date = [day, month];
 
-  return date;
+  var sem;
+
+  if (month == 1){
+    sem = day/7;
+    return sem;
+  }else if(month == 2){
+    sem = (31+day)/7;
+    return sem;
+  }else if(month == 3){
+    sem = (31 + 28 + day)/7;
+    return sem;
+  }else if(month == 4){
+    sem = (31 + 28 + 31 + day)/7;
+    return sem;
+  }else if(month == 5){
+    sem = (31 + 28 + 31 + 30 + day)/7;
+    return sem;
+  }else if(month == 6){
+    sem = (31 + 28 + 31 + 30 + 31 + day)/7;
+    return sem;
+  }else if(month == 7){
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + day)/7;
+    return sem;
+  }else if(month == 8){
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + day)/7;
+    return sem;
+  }else if(month == 9){
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + day)/7;
+    return sem;
+  }else if(month == 10){
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + day)/7;
+    return sem;
+  }else if(month == 11){
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 +  day)/7;
+    return sem;
+  }else if(month == 12){
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + day)/7;
+    return sem;
+  }
+
+  //return date;
 }
+
+

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gremio_imprimi/form/add_aluno_form.dart';
+import 'package:gremio_imprimi/model/crud.dart';
 import 'package:gremio_imprimi/screens/sit_aluno_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -44,6 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
+
+                  dynamic dat = date();
+                  print(dat.floor());
+
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => SitAluno(ctrlMatricula.text)));
                 })
