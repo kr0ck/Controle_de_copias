@@ -1,9 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:gremio_imprimi/form/add_aluno_form.dart';
 import 'package:gremio_imprimi/model/crud.dart';
-import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -86,8 +83,9 @@ class Home extends StatelessWidget {
                   itemBuilder: (context, i) {
                     if (matricula == snapshot.data[j]['MATRICULA_ALUNO']) {
                       return Text(
-                          'O aluno ${snapshot.data[j]['NOME_ALUNO']} tem ${snapshot.data[j]['COPIAS_ALUNO']} copias esta semana',
-                          style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+                        'O aluno ${snapshot.data[j]['NOME_ALUNO']} tem ${snapshot.data[j]['COPIAS_ALUNO']} copias esta semana',
+                        style: TextStyle(
+                            fontSize: 22.0, fontWeight: FontWeight.bold),
                       );
                     } else {
                       return Text('nao encontrado');
@@ -102,5 +100,3 @@ class Home extends StatelessWidget {
     );
   }
 }
-
-

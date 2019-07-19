@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-
+import 'package:gremio_imprimi/model/crud.dart';
 
 class AddAlunoForm extends StatefulWidget {
   @override
@@ -8,20 +7,9 @@ class AddAlunoForm extends StatefulWidget {
 }
 
 class _AddAlunoFormState extends State<AddAlunoForm> {
-
   TextEditingController ctrlMatricula = TextEditingController();
   TextEditingController ctrlNome = TextEditingController();
   TextEditingController ctrlTurma = TextEditingController();
-
-  void addData(){
-    var url = 'https://flutterteste.000webhostapp.com/addData.php'; 
-
-    http.post(url, body: {
-      "matricula" : ctrlMatricula.text,
-      "nome" : ctrlNome.text,
-      "turma" : ctrlTurma.text
-    }); 
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +33,8 @@ class _AddAlunoFormState extends State<AddAlunoForm> {
             ),
             TextField(
               controller: ctrlNome,
-              decoration: InputDecoration(
-                  hintText: 'Nome do aluno',
-                  labelText: 'Nome'),
+              decoration:
+                  InputDecoration(hintText: 'Nome do aluno', labelText: 'Nome'),
             ),
             SizedBox(
               height: 16.0,
@@ -55,8 +42,7 @@ class _AddAlunoFormState extends State<AddAlunoForm> {
             TextField(
               controller: ctrlTurma,
               decoration: InputDecoration(
-                  hintText: 'Turma do aluno',
-                  labelText: 'Turma'),
+                  hintText: 'Turma do aluno', labelText: 'Turma'),
             ),
             SizedBox(
               height: 16.0,
@@ -67,7 +53,7 @@ class _AddAlunoFormState extends State<AddAlunoForm> {
                   style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
-                  addData();
+                  addData(ctrlMatricula, ctrlNome, ctrlTurma);
                   Navigator.of(context).pop();
                 })
           ],
