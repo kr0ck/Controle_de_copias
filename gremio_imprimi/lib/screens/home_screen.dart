@@ -68,19 +68,26 @@ class Home extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasError) print(snapshot.error);
 
-          int j = 0;
-          for (int i = 0; i < snapshot.data.length; i++) {
-            if (matricula == snapshot.data[i]['MATRICULA_ALUNO']) {
-              print(i);
-              j = i;
-            }
-          }
+          // int j = 0;
+          // for (int i = 0; i < snapshot.data.length; i++) {
+          //   if (matricula == snapshot.data[i]['MATRICULA_ALUNO']) {
+          //     print(i);
+          //     j = i;
+          //   }
+          // }
 
           return snapshot.hasData
               ? ListView.builder(
                   itemCount:
                       snapshot.data == null ? 0 : 1, //snapshot.data.length,
                   itemBuilder: (context, i) {
+                    int j = 0;
+                    for (int i = 0; i < snapshot.data.length; i++) {
+                      if (matricula == snapshot.data[i]['MATRICULA_ALUNO']) {
+                        print(i);
+                        j = i;
+                      }
+                    }
                     if (matricula == snapshot.data[j]['MATRICULA_ALUNO']) {
                       return Text(
                         'O aluno ${snapshot.data[j]['NOME_ALUNO']} tem ${snapshot.data[j]['COPIAS_ALUNO']} copias esta semana',
