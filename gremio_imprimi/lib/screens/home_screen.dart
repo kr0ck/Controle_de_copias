@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gremio_imprimi/form/add_aluno_form.dart';
 import 'package:gremio_imprimi/screens/sit_aluno_screen.dart';
+import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   TextEditingController ctrlMatricula = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
+                  print(now.month);
+                  print(now.day);
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => SitAluno(ctrlMatricula.text)));
                 })
