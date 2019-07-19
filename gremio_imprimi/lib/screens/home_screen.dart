@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:gremio_imprimi/form/add_aluno_form.dart';
-import 'package:gremio_imprimi/screens/sit_aluno_screen.dart';
+import 'package:gremio_imprimi/model/crud.dart';
 import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
@@ -62,15 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
 class Home extends StatelessWidget {
   final String matricula;
   Home(this.matricula);
-
-  Future<List> getData() async {
-    var url = 'https://flutterteste.000webhostapp.com/get.php';
-    http.Response response = await http.get(url);
-
-    var data = jsonDecode(response.body);
-    return data;
-    // print(data.toString());
-  }
 
   @override
   Widget build(BuildContext context) {
