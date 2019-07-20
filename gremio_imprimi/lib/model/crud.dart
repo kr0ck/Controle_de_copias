@@ -21,64 +21,49 @@ void addData(ctrlMat, ctrlNome, ctrlTurma) {
   });
 }
 
-void recebeDate(ctrlMat){
+dynamic recebeDate() {
   var now = DateTime.now();
 
   int day = now.day;
   int month = now.month;
-  //List date = [day, month];
-
   var sem;
 
-  if (month == 1){
-    sem = day/7;
-    return sem;
-  }else if(month == 2){
-    sem = (31+day)/7;
-    return sem;
-  }else if(month == 3){
-    sem = (31 + 28 + day)/7;
-    return sem;
-  }else if(month == 4){
-    sem = (31 + 28 + 31 + day)/7;
-    return sem;
-  }else if(month == 5){
-    sem = (31 + 28 + 31 + 30 + day)/7;
-    return sem;
-  }else if(month == 6){
-    sem = (31 + 28 + 31 + 30 + 31 + day)/7;
-    return sem;
-  }else if(month == 7){
-    sem = (31 + 28 + 31 + 30 + 31 + 30 + day)/7;
-    return sem;
-  }else if(month == 8){
-    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + day)/7;
-    return sem;
-  }else if(month == 9){
-    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + day)/7;
-    return sem;
-  }else if(month == 10){
-    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + day)/7;
-    return sem;
-  }else if(month == 11){
-    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 +  day)/7;
-    return sem;
-  }else if(month == 12){
-    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + day)/7;
-    return sem;
+  if (month == 1) {
+    sem = day / 7;
+  } else if (month == 2) {
+    sem = (31 + day) / 7;
+  } else if (month == 3) {
+    sem = (31 + 28 + day) / 7;
+  } else if (month == 4) {
+    sem = (31 + 28 + 31 + day) / 7;
+  } else if (month == 5) {
+    sem = (31 + 28 + 31 + 30 + day) / 7;
+  } else if (month == 6) {
+    sem = (31 + 28 + 31 + 30 + 31 + day) / 7;
+  } else if (month == 7) {
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + day) / 7;
+  } else if (month == 8) {
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + day) / 7;
+  } else if (month == 9) {
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + day) / 7;
+  } else if (month == 10) {
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + day) / 7;
+  } else if (month == 11) {
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + day) / 7;
+  } else if (month == 12) {
+    sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + day) / 7;
   }
-  var semana = sem.floor()+1;
 
-  print(ctrlMat.text);
-  print(semana);
+  var semana = sem.floor() + 1;
+  return semana;
+}
+
+void updateDat(ctrlMatricula){
+  var sem = recebeDate();
   var url = 'https://flutterteste.000webhostapp.com/editData.php';
 
   http.post(url, body: {
-    "matricula": ctrlMat.text,
-    "semana": semana.text,
+    "matricula": ctrlMatricula.text,
+    "semana": sem.toString(),
   });
-
-  //return date;
 }
-
-
