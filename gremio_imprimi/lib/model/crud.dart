@@ -21,7 +21,7 @@ void addData(ctrlMat, ctrlNome, ctrlTurma) {
   });
 }
 
-dynamic date(){
+void recebeDate(ctrlMat){
   var now = DateTime.now();
 
   int day = now.day;
@@ -67,6 +67,16 @@ dynamic date(){
     sem = (31 + 28 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + day)/7;
     return sem;
   }
+  var semana = sem.floor()+1;
+
+  print(ctrlMat.text);
+  print(semana);
+  var url = 'https://flutterteste.000webhostapp.com/editData.php';
+
+  http.post(url, body: {
+    "matricula": ctrlMat.text,
+    "semana": semana.text,
+  });
 
   //return date;
 }

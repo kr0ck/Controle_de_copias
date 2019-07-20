@@ -26,7 +26,6 @@ class SitAluno extends StatelessWidget {
                       int j = 0;
                       for (int i = 0; i < snapshot.data.length; i++) {
                         if (matricula == snapshot.data[i]['MATRICULA_ALUNO']) {
-                          print(i);
                           j = i;
                         }
                       }
