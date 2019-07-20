@@ -14,7 +14,7 @@ class SitAluno extends StatelessWidget {
         centerTitle: true,
       ),
       body: Container(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(18.0),
         child: FutureBuilder<List>(
           future: getData(),
           builder: (context, snapshot) {
@@ -52,7 +52,7 @@ class SitAluno extends StatelessWidget {
                               style: TextStyle(fontSize: 18.0),
                             ),
                             Text(
-                              'Nº de copias esta semana:',
+                              'Nº de copias na semana ${snapshot.data[j]['SEMANA_ALUNO']}:',
                               style: TextStyle(
                                   fontSize: 22.0, fontWeight: FontWeight.bold),
                             ),
