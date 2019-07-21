@@ -59,11 +59,21 @@ dynamic recebeDate() {
 }
 
 void updateDat(ctrlMatricula){
-  var sem = recebeDate();
+  //var sem = recebeDate();
   var url = 'https://flutterteste.000webhostapp.com/editData.php';
 
   http.post(url, body: {
     "matricula": ctrlMatricula.text,
-    "semana": sem.toString(),
+    //"semana": sem.toString(),
+  });
+}
+
+void updateCop(ctrlMatricula, cop){
+  //var sem = recebeDate();
+  var url = 'https://flutterteste.000webhostapp.com/editCop.php';
+
+  http.post(url, body: {
+    "matricula": ctrlMatricula,
+    "copia": cop.text,
   });
 }
